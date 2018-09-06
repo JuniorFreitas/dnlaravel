@@ -1,0 +1,76 @@
+version: "2"
+services:
+  db:
+    container_name: app_db
+    image: mariadb:latest
+    restart: always
+    volumes:
+    - ./docker/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 010101
+      MYSQL_DATABASE: dbase
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+    ports:
+    - "3306:3306"
+    networks:
+    - default
+
+  # redis
+  cache:
+    image: redis
+
+  pma:
+    container_name: app_pma
+    image: phpmyadmin/phpmyadmin
+    links:
+    - "php"
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: db
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    restart: always
+    ports:
+    - "8005:80"
+    volumes:
+    - ./docker/sessions:/sessions
+
+  php:
+    container_name: app_php
+    build: ./docker/php
+    volumes:
+    - ./application:/app
+    - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    links:
+    - "db"
+    - "cache"
+
+  web:
+    image: "nginx:1.13.8-alpine"
+    container_name: app_web
+    volumes:
+    - ./application:/app
+    - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    #- ./docker/nginx/hosts:/etc/hosts
+    - ./docker/nginx/logs:/var/log/nginx/
+    #- ./docker/nginx/cert:/app/cert/
+    environment:
+      VIRTUAL_HOST: app.com #endereço da aplicacao
+      VIRTUAL_PORT: 8002
+      LETSENCRYPT_HOST: app.com #endereço da aplicacao novamente
+      LETSENCRYPT_EMAIL: seuemail@gmail.com
+      COMPOSER_ALLOW_SUPERUSER: 1
+    expose:
+    - "8002"
+    ports:
+    - "8002:80"
+    links:
+    - "php"
+    - "db"
+    - "cache"
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

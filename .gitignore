@@ -1,0 +1,4 @@
+/docker/mysql
+/docker/nginx/logs
+/docker/sessions
+/redis-4.0.11
