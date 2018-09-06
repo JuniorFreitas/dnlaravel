@@ -25,7 +25,7 @@ cd dnlaravel
 sh start.sh
 ```
 
-###Estruturas das pastas Inicial
+### Estruturas das pastas Inicial
 
 ```sh
 .
@@ -51,7 +51,7 @@ sh start.sh
 
 Após a instalação criará a seguinte pasta **aplication** com a estrutura do projeto Laravel
 
-###Estruturas das pastas após execução do script
+### Estruturas das pastas após execução do script
 
 ```sh
 .
