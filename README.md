@@ -1,4 +1,4 @@
-# DNLaravel <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+# DNLaravel <img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License">
 
 **DNLaravel** é um ambiente pré-configurado com Docker para utilizar 
 
