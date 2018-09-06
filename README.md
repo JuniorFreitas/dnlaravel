@@ -6,7 +6,7 @@
   - MariaDb
   - Redis
   - Nginx
-  - Laravel
+  - Laravel >=5.5
   
 #### Pré-requisitos
 
