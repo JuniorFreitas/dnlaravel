@@ -1,4 +1,4 @@
-# DNLaravel
+# DNLaravel <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 
 **DNLaravel** é um ambiente pré-configurado com Docker para utilizar 
 
@@ -24,8 +24,35 @@ cd dnlaravel
 # Execute o script
 sh start.sh
 ```
+
+###Estruturas das pastas Inicial
+
+```sh
+.
++-- docker
+|   +-- docker-compose.yml
+    |   +-- nginx
+        |   +-- certs
+                |-- app.com.key
+                |-- app.com.pem
+    |   +-- php
+            | -- php.ini
+            | -- Dockerfile
+    |   +-- sessions
+    |   +-- utils
+            | -- .env
+            | -- composer
++-- application
+-- start.sh
+-- docker-compose.yml
+-- README.md
+-- LICENSE
+```
+
 Após a instalação criará a seguinte pasta **aplication** com a estrutura do projeto Laravel
-###Estruturas das pastas
+
+###Estruturas das pastas após execução do script
+
 ```sh
 .
 +-- docker
@@ -38,7 +65,6 @@ Após a instalação criará a seguinte pasta **aplication** com a estrutura do 
         |   +--logs
             | -- hosts
             | -- default.conf
-    |   +-- logs
     |   +-- php
             | -- php.ini
             | -- Dockerfile
@@ -56,4 +82,7 @@ Após a instalação criará a seguinte pasta **aplication** com a estrutura do 
 ```sh
 docker-compose up -d
 ```
-**LICENSE MIT**
+
+## License
+
+The DNLaravel is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
