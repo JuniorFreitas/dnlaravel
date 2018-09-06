@@ -1,8 +1,8 @@
 FROM php:7.2.5-fpm-alpine3.7
-# docker build -t bscheshir/php:fpm-alpine-4yii2-xdebug --pull -- .
+
 MAINTAINER Dynamus <josedejesusjunior@gmail.com>
 
-# Install system packages & PHP extensions required for Yii 2.0 Framework
+# Install system packages & PHP extensions required for Laravel
 RUN apk --update add \
         git \
         curl \

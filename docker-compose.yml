@@ -12,7 +12,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: 123456
     ports:
-    - "3306:3306"
+    - "3309:3306"
     networks:
     - default
 
@@ -32,7 +32,7 @@ services:
       PHP_MAX_INPUT_VARS: 1G
     restart: always
     ports:
-    - "8005:80"
+    - "8099:80"
     volumes:
     - ./docker/sessions:/sessions
 
