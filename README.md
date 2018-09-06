@@ -17,6 +17,11 @@
 ### Instalação
 Para instalar basta executar o seguinte comando
 ```sh
+# Faça o Clone
+git clone git@github.com:JuniorFreitas/dnlaravel.git
+# Agora entre na pasta dnlaravel
+cd dnlaravel
+# Execute o script
 sh start.sh
 ```
 Após a instalação criará a seguinte pasta **aplication** com a estrutura do projeto Laravel
